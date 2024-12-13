@@ -132,6 +132,15 @@ const StepperComponent = () => {
 
                 {index == 6 ? <StepLine open={false} /> : <StepLine />}
               </Box>
+              <Typography variant="body2" sx={{
+                fontWeight: "bold",
+                color: index <= activeStep ? "#000" : "#8e8e8e",
+                fontSize: "12px",
+                textAlign: "center",
+              }}>
+                {index < activeStep ? null : "(Approx 5 Min)"}
+                
+              </Typography>
             </Box>
           ))}
         </Box>

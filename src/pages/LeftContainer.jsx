@@ -29,7 +29,6 @@ export default function LeftContainer({ open, toggleDrawer }) {
           display: { xs: "none", sm: "block" }, // Show Sidebar permanently on larger screens
           width: 240,
           backgroundColor: "#fff",
-          boxShadow: "2px 0px 5px rgba(0, 0, 0, 0.1)",
           height: "100vh",
         }}
       >

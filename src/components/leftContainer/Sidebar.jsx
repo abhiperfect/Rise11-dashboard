@@ -34,6 +34,7 @@ const Sidebar = () => {
         boxShadow: "2px 0px 5px rgba(0, 0, 0, 0.1)",
         height: "100vh",
         padding: 2,
+        boxShadow:'none'
       }}
     >
       <IconImg src={jur} alt="jur" />

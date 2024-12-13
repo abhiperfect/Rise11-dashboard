@@ -24,24 +24,16 @@ export default function Dashboard() {
       >
         <Box
           sx={{
-            bgcolor: '#7d2c2c',
+            bgcolor: '#ffffff',
             height: '100vh',
             width: '100%',
             display: 'flex',
+            boxShadow:'none'
           }}
         >
           <LeftContainer open={openSidebar} toggleDrawer={toggleDrawer} />
           <Box sx={{ flexGrow: 1 }}>
             <RightContainer toggleDrawer={toggleDrawer} />
-            <Box
-              sx={{
-                bgcolor: '#fff',
-                height: 'calc(100vh - 64px)', // Adjust height below the header
-                padding: 2,
-              }}
-            >
-              {/* Add your other content here */}
-            </Box>
           </Box>
         </Box>
       </Container>

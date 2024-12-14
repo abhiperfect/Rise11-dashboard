@@ -55,9 +55,12 @@ This project is a responsive dashboard built with React.js, replicating the desi
 
 ## Screenshots
 
-- **Desktop View**: ![Desktop Screenshot](public/desktop.png)
-- **Tablet View**: ![Tablet Screenshot](public/tablet.png)
-- **Mobile View**: ![Mobile Screenshot](public/mobile.png)
+- **Desktop View**: 
+![Desktop Screenshot](public/desktop.png)
+- **Tablet View**: 
+![Tablet Screenshot](public/tablet.png)
+- **Mobile View**: 
+![Mobile Screenshot](public/mobile.png)
 
 ## Installation
 

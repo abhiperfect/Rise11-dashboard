@@ -2,7 +2,7 @@ import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
-import Heading from "./claim/Heading";
+import Heading from "../../../Comman/Heading";
 import ClaimValue from "./claim/ClaimValue";
 import Place from "./claim/Place";
 import Language from "./claim/Language";
@@ -26,24 +26,23 @@ export default function Claim() {
         scrollbarWidth: "none",
       }}
     >
-      <Heading />
+      <Heading title="File your Claim." subtitle="(Approx 5 Min)" />
       <Container>
         <CssBaseline />
         <Box
           sx={{
             display: "flex",
-            flexWrap: "wrap", // Enable wrapping for smaller screens
+            flexWrap: "wrap",
             gap: 2,
             padding: 2,
             justifyContent: "space-between",
             overflow: "auto",
           }}
         >
-          {/* Box for each component */}
           <Box
             sx={{
-              flex: "1 1 calc(33.33% - 16px)", // 33.33% width for 3 items per row, accounting for gap
-              minWidth: "300px", // Ensure a minimum width
+              flex: "1 1 calc(33.33% - 16px)",
+              minWidth: "300px",
             }}
           >
             <ClaimValue />
@@ -71,18 +70,17 @@ export default function Claim() {
         <Box
           sx={{
             display: "flex",
-            flexWrap: "wrap", // Enable wrapping for smaller screens
+            flexWrap: "wrap",
             gap: 2,
             padding: 2,
             justifyContent: "space-between",
             overflow: "auto",
           }}
         >
-          {/* Box for each component */}
           <Box
             sx={{
-              flex: "1 1 calc(33.33% - 16px)", // 33.33% width for 3 items per row, accounting for gap
-              minWidth: "300px", // Ensure a minimum width
+              flex: "1 1 calc(33.33% - 16px)",
+              minWidth: "300px",
             }}
           >
             <Statement />

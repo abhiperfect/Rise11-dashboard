@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@mui/material";
 import Box from "@mui/material/Box";
 
-export default function Heading() {
+export default function Heading({title = 'File your Claim.', subtitle = '(Approx 5 Min)'}) {
   return (
     <Box
       sx={{
@@ -23,10 +23,10 @@ export default function Heading() {
         }}
       >
         <Typography fontWeight={"bold"} variant="h5" gutterBottom>
-          File your Claim.
+          {title}
         </Typography>
         <Typography variant="body2" gutterBottom>
-          (Approx 5 Min)
+          {subtitle}
         </Typography>
       </Box>
       <Box

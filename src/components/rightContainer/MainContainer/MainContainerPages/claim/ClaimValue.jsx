@@ -3,21 +3,21 @@ import { TextField, Typography, Box } from "@mui/material";
 import CalculateOutlinedIcon from "@mui/icons-material/CalculateOutlined";
 import { styled } from "@mui/system";
 
-// Custom styled TextField
+
 const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
     "& fieldset": {
-      border: "none", // Remove border by default
+      border: "none", 
     },
     "&:hover fieldset": {
-      border: "none", // Remove border on hover
+      border: "none", 
     },
     "&.Mui-focused fieldset": {
-      border: "2px solid #1e83ff", // Primary color border on focus
+      border: "2px solid #1e83ff", 
     },
   },
   "& .MuiInputLabel-root": {
-    color: "#000", // Optional: Change label color
+    color: "#000", 
   },
 });
 

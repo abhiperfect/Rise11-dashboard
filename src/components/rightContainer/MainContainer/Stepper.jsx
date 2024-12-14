@@ -12,19 +12,18 @@ import RadioButtonUncheckedIcon from "@mui/icons-material/RadioButtonUnchecked";
 import KeyboardArrowLeft from "@mui/icons-material/KeyboardArrowLeft";
 import KeyboardArrowRight from "@mui/icons-material/KeyboardArrowRight";
 import StepLine from "./Stepper/StepLine";
-import { Margin } from "@mui/icons-material";
-// Steps for the stepper
+import { useNavigate } from "react-router-dom";
+
 const steps = [
-  "Preliminary",
-  "Your Details",
-  "KYC",
-  "Parties",
-  "Claim",
-  "Review",
-  "Payment",
+  { label: "Preliminary", route: "/preliminary" },
+  { label: "Your Details", route: "/your-details" },
+  { label: "KYC", route: "/kyc" },
+  { label: "Parties", route: "/parties" },
+  { label: "Claim", route: "/claim" },
+  { label: "Review", route: "/review" },
+  { label: "Payment", route: "/payment" },
 ];
 
-// Custom step icon for active, completed, and upcoming steps
 const StepIcon = ({ active, completed }) => {
   return completed ? (
     <CheckCircleIcon sx={{ color: "#1e83ff", fontSize: 30 }} />
@@ -35,24 +34,27 @@ const StepIcon = ({ active, completed }) => {
   );
 };
 
-// Main Stepper Component
 const StepperComponent = () => {
-  const [activeStep, setActiveStep] = useState(3); // Default active step is 3rd (KYC)
-  const isSmallScreen = useMediaQuery("(max-width: 768px)"); // Check for small screens
+  const [activeStep, setActiveStep] = useState(4);
+  const isSmallScreen = useMediaQuery("(max-width: 768px)");
   const theme = useTheme();
+  const navigate = useNavigate(); 
 
-  const handleStepClick = (index) => {
+  const handleStepClick = (index, route) => {
     setActiveStep(index);
+    navigate(route);
   };
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) =>
       Math.min(prevActiveStep + 1, steps.length - 1)
     );
+    navigate(steps[Math.min(activeStep + 1, steps.length - 1)].route);
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => Math.max(prevActiveStep - 1, 0));
+    navigate(steps[Math.max(activeStep - 1, 0)].route);
   };
 
   return (
@@ -68,29 +70,27 @@ const StepperComponent = () => {
         borderRadius: 3,
       }}
     >
-      {/* Stepper for Large Screens */}
       {!isSmallScreen && (
         <Box
           sx={{
             display: "flex",
             justifyContent: "space-between",
             width: "100%",
-            maxWidth: "100%", // Ensure full width
+            maxWidth: "100%",
           }}
         >
-          {steps.map((label, index) => (
+          {steps.map((step, index) => (
             <Box
               key={index}
               sx={{
                 display: "flex",
-                flex: 1, // Equal spacing between steps
+                flex: 1,
                 flexDirection: "column",
                 alignItems: "center",
                 cursor: "pointer",
               }}
-              onClick={() => handleStepClick(index)}
+              onClick={() => handleStepClick(index, step.route)}
             >
-              {/* Step Label */}
               <Box sx={{ display: "flex", gap: 1, alignItems: "center" }}>
                 <Typography
                   variant="body2"
@@ -111,11 +111,10 @@ const StepperComponent = () => {
                     textAlign: "center",
                   }}
                 >
-                  {label}
+                  {step.label}
                 </Typography>
               </Box>
 
-              {/* Step Icon */}
               <Box
                 sx={{
                   display: "flex",
@@ -123,31 +122,24 @@ const StepperComponent = () => {
                   width: "100%",
                 }}
               >
-                {index == 0 ? <StepLine open={false} /> : <StepLine />}
+                {index === 0 ? <StepLine open={false} /> : <StepLine />}
                 <Box sx={{ margin: "0 8px" }}>
                   <StepIcon
                     active={index === activeStep}
                     completed={index < activeStep}
                   />
                 </Box>
-
-                {index == 6 ? <StepLine open={false} /> : <StepLine />}
+                {index === steps.length - 1 ? (
+                  <StepLine open={false} />
+                ) : (
+                  <StepLine />
+                )}
               </Box>
-              <Typography variant="body2" sx={{
-                fontWeight: "bold",
-                color: index <= activeStep ? "#000" : "#8e8e8e",
-                fontSize: "12px",
-                textAlign: "center",
-              }}>
-                {index < activeStep ? null : "(Approx 5 Min)"}
-                
-              </Typography>
             </Box>
           ))}
         </Box>
       )}
 
-      {/* MobileStepper for Small Screens */}
       {isSmallScreen && (
         <MobileStepper
           variant="dots"

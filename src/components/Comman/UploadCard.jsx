@@ -28,14 +28,14 @@ const UploadCard = ({ title = "Upload the Contract", onFileChange }) => {
       <Typography fontSize={10} color="#1e83ff" fontWeight={500}>
         Max 2MB, PDF
       </Typography>
-      {/* Hidden file input */}
+      
       <input
         type="file"
         hidden
         accept=".pdf"
         onChange={(e) => {
           if (onFileChange) {
-            onFileChange(e.target.files[0]); // Trigger the callback function
+            onFileChange(e.target.files[0]); 
           }
         }}
       />

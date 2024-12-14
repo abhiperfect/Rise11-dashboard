@@ -12,7 +12,7 @@ const MyCard = ({ Icon = <CalculateOutlinedIcon style={{ fontSize: "40px", color
           gap: 2,
         }}
       >
-        {Icon} {/* Correctly render the Icon prop */}
+        {Icon} 
         <Typography variant="h6">{title}</Typography>
       </Box>
       <Box
@@ -26,7 +26,7 @@ const MyCard = ({ Icon = <CalculateOutlinedIcon style={{ fontSize: "40px", color
           alignItems: "space-between",
         }}
       >
-        {children} {/* Render the children prop correctly */}
+        {children}
       </Box>
     </Box>
   );

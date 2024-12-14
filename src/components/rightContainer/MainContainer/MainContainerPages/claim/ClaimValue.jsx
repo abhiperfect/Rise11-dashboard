@@ -73,7 +73,7 @@ const ClaimValue = () => {
               endAdornment: <Typography>USD</Typography>,
             }}
           />
-          {/* Informative Text */}
+
           <Typography
             variant="body2"
             color="#ffab45"

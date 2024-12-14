@@ -14,7 +14,7 @@ export default function LeftContainer({ open, toggleDrawer }) {
         onClose={toggleDrawer}
         variant="temporary"
         sx={{
-          display: { xs: "block", sm: "none" }, // Show Drawer on mobile (small screens)
+          display: { xs: "block", sm: "none" }, 
           "& .MuiDrawer-paper": {
             width: 240,
             boxSizing: "border-box",
@@ -26,7 +26,7 @@ export default function LeftContainer({ open, toggleDrawer }) {
 
       <Box
         sx={{
-          display: { xs: "none", sm: "block" }, // Show Sidebar permanently on larger screens
+          display: { xs: "none", sm: "block" }, 
           width: 240,
           backgroundColor: "#fff",
           height: "100vh",

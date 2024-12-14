@@ -8,7 +8,7 @@ const Statement = () => {
   const handleFileChange = (event) => {
     const file = event.target.files[0];
     if (file) {
-      console.log("Selected PDF file:", file.name); // Handle the uploaded file here
+      console.log("Selected PDF file:", file.name);
     }
   };
 
@@ -39,7 +39,7 @@ const Statement = () => {
           <Typography fontSize={14} fontWeight={500}>
             Upload a PDF
           </Typography>
-          {/* Hidden input for file upload */}
+
           <input
             type="file"
             accept=".pdf"

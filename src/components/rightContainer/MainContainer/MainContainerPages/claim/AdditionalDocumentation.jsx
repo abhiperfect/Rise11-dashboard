@@ -6,13 +6,13 @@ import UploadCard from "../../../../Comman/UploadCard";
 import ControlPointOutlinedIcon from "@mui/icons-material/ControlPointOutlined";
 
 const AdditionalDocumentation = () => {
-  // Create a reference for the file input
+
   const fileInputRef = useRef(null);
 
-  // Function to trigger file input click
+
   const handleFileInputClick = () => {
     if (fileInputRef.current) {
-      fileInputRef.current.click(); // Trigger the file input click
+      fileInputRef.current.click(); 
     }
   };
 
@@ -39,7 +39,7 @@ const AdditionalDocumentation = () => {
             alignItems: "center",
             width: "120px",
           }}
-          onClick={handleFileInputClick} // Trigger the file input click when button is clicked
+          onClick={handleFileInputClick} 
         >
           <ControlPointOutlinedIcon
             style={{ fontSize: "60px", color: "#1e83ff", width: "100%" }}
@@ -47,7 +47,7 @@ const AdditionalDocumentation = () => {
           <input
             type="file"
             hidden
-            ref={fileInputRef} // Assign the file input reference
+            ref={fileInputRef}
           />
         </Button>
       </Box>

@@ -63,6 +63,7 @@ const StepperComponent = () => {
         flexDirection: "column",
         alignItems: "center",
         p: 3,
+        pb: 0,
         background: "#f4f5fc",
         borderRadius: 3,
       }}

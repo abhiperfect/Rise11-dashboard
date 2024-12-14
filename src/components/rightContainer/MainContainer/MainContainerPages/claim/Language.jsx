@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   TextField,
@@ -6,9 +6,14 @@ import {
   FormControlLabel,
   Radio,
   Box,
+  Menu,
+  MenuItem,
+  InputAdornment,
+  IconButton,
 } from "@mui/material";
 import TranslateOutlinedIcon from "@mui/icons-material/TranslateOutlined";
 import { styled } from "@mui/system";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 const CustomTextField = styled(TextField)({
   "& .MuiOutlinedInput-root": {
@@ -28,6 +33,24 @@ const CustomTextField = styled(TextField)({
 });
 
 const Language = () => {
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedLanguage, setSelectedLanguage] = useState("");
+
+  const languages = ["English", "Spanish", "French", "German", "Mandarin"];
+
+  const handleTextFieldClick = (event) => {
+    setAnchorEl(event.currentTarget); 
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleLanguageSelect = (language) => {
+    setSelectedLanguage(language);
+    handleClose();
+  };
+
   return (
     <Box sx={{ width: "360px", display: "flex", flexDirection: "column" }}>
       <Box
@@ -44,10 +67,42 @@ const Language = () => {
         <Box>
           <CustomTextField
             label="Select the language for proceedings"
+            value={selectedLanguage} 
             fullWidth
             margin="normal"
             sx={{ backgroundColor: "#f4f5fc" }}
+            onClick={handleTextFieldClick} 
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton edge="end">
+                    <ArrowDropDownIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+            }}
           />
+          <Menu
+            anchorEl={anchorEl}
+            open={Boolean(anchorEl)} 
+            onClose={handleClose} 
+            PaperProps={{
+              sx: {
+                width: anchorEl ? anchorEl.offsetWidth : "360px",
+                maxHeight: 200,
+                overflowY: "auto", 
+              },
+            }}
+          >
+            {languages.map((language, index) => (
+              <MenuItem
+                key={index}
+                onClick={() => handleLanguageSelect(language)}
+              >
+                {language}
+              </MenuItem>
+            ))}
+          </Menu>
           <Typography>
             Is the language for the proceedings the one mentioned in the
             agreement?
